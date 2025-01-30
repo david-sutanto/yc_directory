@@ -17,12 +17,12 @@ export default async function Home({
       _id: 1,
       description: "This is description",
       image: {
-        src: "https://dummyimage.com/600x400/000/fff.png&text=image1",
+        src: "https://picsum.photos/600/400",
         width: 600,
         height: 400,
       },
       category: "Robots",
-      title: "we Robots",
+      title: "We Robots",
     },
   ];
 
