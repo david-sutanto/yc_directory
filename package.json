@@ -24,6 +24,7 @@
     "next": "^15.2.0-canary.33",
     "next-auth": "^5.0.0-beta.25",
     "next-sanity": "^9.8.46",
+    "next-server": "^9.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-is": "^19.0.0",
