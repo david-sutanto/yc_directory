@@ -1,10 +1,9 @@
 "use server";
 
 import { auth } from "@/auth";
-import { parseServerActionResponse } from "./utils";
+import { parseServerActionResponse } from "@/lib/utils";
 import slugify from "slugify";
 import { writeClient } from "@/sanity/lib/write-client";
-import { Result } from "postcss";
 
 export const createPitch = async (
   state: any,
@@ -20,16 +19,10 @@ export const createPitch = async (
     });
 
   const { title, description, category, link } = Object.fromEntries(
-    Array.from(form).filter(([key]) => key != "pitch")
+    Array.from(form).filter(([key]) => key !== "pitch")
   );
 
   const slug = slugify(title as string, { lower: true, strict: true });
-
-  return parseServerActionResponse({
-    ...Result,
-    error: "",
-    status: "SUCCESS",
-  });
 
   try {
     const startup = {
@@ -48,7 +41,13 @@ export const createPitch = async (
       pitch,
     };
 
-    const result = await writeClient.create({ _type: "startup ", ...startup });
+    const result = await writeClient.create({ _type: "startup", ...startup });
+
+    return parseServerActionResponse({
+      ...result,
+      error: "",
+      status: "SUCCESS",
+    });
   } catch (error) {
     console.log(error);
 

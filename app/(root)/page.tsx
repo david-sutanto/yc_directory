@@ -17,23 +17,6 @@ export default async function Home({
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
-  // const posts = [
-  //   {
-  //     _createdAt: new Date(),
-  //     views: 55,
-  //     author: { _id: 1, name: "Adrian" },
-  //     _id: 1,
-  //     description: "This is description",
-  //     image: {
-  //       src: "https://picsum.photos/600/400",
-  //       width: 600,
-  //       height: 400,
-  //     },
-  //     category: "Robots",
-  //     title: "We Robots",
-  //   },
-  // ];
-
   return (
     <>
       <section className="pink_container">
