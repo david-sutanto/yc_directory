@@ -9,7 +9,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async signIn({
       user: { name, email, image },
-      account,
       profile: { id, login, bio },
     }) {
       const existingUser = await client
@@ -40,9 +39,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             id: profile?.id,
           });
 
-        if (!user) {
-          token.id = user?._id;
-        }
+        token.id = user?._id;
       }
       return token;
     },
